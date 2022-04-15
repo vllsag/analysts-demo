@@ -279,7 +279,7 @@
                     "400": {
                         "description": "Invalid tag value"
                     },
-                    "403" {
+                    "403": {
                         "description": "Forbidden"
                     }
                 },
