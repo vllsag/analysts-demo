@@ -297,7 +297,7 @@
                     "pet"
                 ],
                 "summary": "Find pet by ID by Przemek",
-                "description": "Returns a single pet",
+                "description": "Returns a single pet by Przemek",
                 "operationId": "getPetById",
                 "produces": [
                     "application/json",
