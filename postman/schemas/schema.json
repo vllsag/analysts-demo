@@ -280,7 +280,7 @@
                         "description": "Invalid tag value"
                     },
                     "403": {
-                        "description": "Forbidden"
+                        "description": "Forbidden access"
                     }
                 },
                 "security": [
