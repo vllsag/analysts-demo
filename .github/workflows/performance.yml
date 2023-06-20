@@ -1,0 +1,25 @@
+name: Refresh node modules cache
+on: 
+  workflow_dispatch:
+    inputs:
+      Runner-labels:
+        description: 'Define the labels as comma separated values :'     
+        required: true
+        default: '["self-hosted"]'
+jobs:
+  Refreshing_modules:
+    strategy:
+      matrix:
+        runners: ${{ fromJSON(github.event.inputs.Runner-labels)}}
+    runs-on: ${{ matrix.runners }}
+    steps:
+     - name: copying node_modules
+       run: |
+        if mountpoint -q /apigateway; then
+         echo "/apigateway already mounted"
+        else
+         echo ${{ secrets.NODE_MODULES_VM_PASSWORD }} | sudo -S mount -t cifs -o username=${{ secrets.IREGISTRY_USERNAME }},password=${{ secrets.IREGISTRY_PASSWORD_PARSED }} //daenus01.eur.ad.sag/tamshr/int/apigateway /apigateway
+        fi
+        cd /apigateway
+        cp -r accessibility_node_modules /node_modules
+        cp -r node_modules /node_modules
