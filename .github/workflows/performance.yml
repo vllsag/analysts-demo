@@ -11,12 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+#update urls 
       - name: RUN functional tests
         run:  k6 run functionalTests.js
-        
+#update urls         
       - name: RUN performanceTests.js
         run: k6 run performanceTests.js
-        
+#upload html report   
       - name: uploading html report 
         run: uploading html report 
+#promotion step 
 
