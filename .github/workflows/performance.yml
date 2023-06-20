@@ -11,6 +11,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Echo statement
-        run:  ls
+      - name: RUN functional tests
+        run:  k6 run functionalTests.js
+        
+      - name: RUN performanceTests.js
+        run: k6 run performanceTests.js
+        
+      - name: uploading html report 
+        run: uploading html report 
 
