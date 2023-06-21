@@ -38,8 +38,8 @@ jobs:
         run: |
          mkdir results 
          cp index.html results 
-         cp summary.html  results 
-         cp summary-functional.html results
+         cp tests/summary.html  results 
+         cp tests/summary-functional.html results
          
       - name: Upload artifact
         if: always()
