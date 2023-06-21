@@ -17,8 +17,14 @@ jobs:
 #update urls         
       - name: RUN performanceTests.js
         run: k6 run performanceTests.js
-#upload html report   
-      - name: uploading html report 
-        run: uploading html report 
 #promotion step 
+      - name: "Put back details"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        if: always()
+        with:
+          GITHUB_TOKEN: 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
+          branch: main
+          commit_message: "Automated Change"
+          push_options: '--force'
+          create_branch: true 
 
