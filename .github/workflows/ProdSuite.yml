@@ -29,6 +29,7 @@ jobs:
             k6 run functionalTest.js
 
       - name: RUN performanceTests.js
+        if: always()
         run: |
             cd tests
             k6 run performanceTest.js
