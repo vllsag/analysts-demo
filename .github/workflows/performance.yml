@@ -22,7 +22,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         if: always()
         with:
-          GITHUB_TOKEN: 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
+          GITHUB_TOKEN: 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
           branch: main
           commit_message: "Automated Change"
           push_options: '--force'
