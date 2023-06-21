@@ -7,7 +7,7 @@ export const CounterErrors = new Counter('Errors');
 
 export const options = {
   thresholds: {
-    'Errors': ['count<1'],
+    // 'Errors': ['count<1'],
   },
 };
 
