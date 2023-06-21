@@ -1,4 +1,4 @@
-name: Performance test
+name: API Dev suite 
 
 on: 
   workflow_dispatch:
@@ -34,6 +34,7 @@ jobs:
             k6 run performanceTest.js
         
       - name: Report results
+        if: always()
         run: |
          mkdir results 
          cp index.html results 
@@ -41,11 +42,13 @@ jobs:
          cp summary-functional.html results
          
       - name: Upload artifact
+        if: always()
         uses: actions/upload-pages-artifact@v1
         with:
              path: './results'
              
       - name: Deploy to GitHub Pages
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v1
  
