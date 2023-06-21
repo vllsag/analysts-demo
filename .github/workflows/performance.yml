@@ -32,6 +32,7 @@ jobs:
       - name: directory creation and movement
         run: |
          mkdir results 
+         cp index.html results 
          cp summary.html  results 
          cp summary-functional.html results
       - name: Upload artifact
