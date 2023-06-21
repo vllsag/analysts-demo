@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<asset_composite name="APIGatewayAssets" displayName="Assets for API Gateway" runtimeVersion="10.15" targetNamespace="http://namespaces.softwareag.com/webMethods/APIGateway" xmlns="http://namespaces.softwareag.com/acdl/1.0" xmlns:EDA="http://namespaces.softwareag.com/webMethods/EDA" xmlns:MWS="http://namespaces.softwareag.com/webMethods/MWS" xmlns:IS="http://namespaces.softwareag.com/webMethods/IS" xmlns:APIPORTAL="http://namespaces.softwareag.com/webMethods/APIPORTAL" xmlns:AgileApps="http://namespaces.softwareag.com/webMethods/AgileApps" xmlns:BROKER="http://namespaces.softwareag.com/webMethods/BROKER" xmlns:implDetails="http://namespaces.softwareag.com/acdl/implDetails" xmlns:UniversalMessaging="http://namespaces.softwareag.com/webMethods/UniversalMessaging" xmlns:TN="http://namespaces.softwareag.com/webMethods/TN" xmlns:RULES="http://namespaces.softwareag.com/webMethods/RULES" xmlns:BPM="http://namespaces.softwareag.com/webMethods/BPM" xmlns:Optimize="http://namespaces.softwareag.com/webMethods/Optimize">
+    <buildInfo name="BuildTimestamp" value="2023-06-21T15:20:41"/>
+    <asset name="API.070111f2-befc-11ec-9621-df3e3620bc44" displayName="Governed Petstore[1.0.6]" isDeployable="true">
+        <implementation.generic type="API"/>
+        <dependsOn>APIGateway:Policy.521e8fc0-acee-46a9-b442-3d7e80d672ab</dependsOn>
+    </asset>
+    <asset name="Policy.521e8fc0-acee-46a9-b442-3d7e80d672ab" displayName="Policy For API Governed Petstore[1.0.6]" isDeployable="true">
+        <implementation.generic type="Policy"/>
+        <dependsOn>APIGateway:PolicyAction.0925f9b1-6847-4248-a9f5-e3b560aaa48f</dependsOn>
+        <dependsOn>APIGateway:PolicyAction.e58b886c-b1bf-40fd-ac87-94ce532b5962</dependsOn>
+    </asset>
+    <asset name="PolicyAction.e58b886c-b1bf-40fd-ac87-94ce532b5962" displayName="Policy Action [Enable HTTP / HTTPS] -&gt; Policy For API Governed Petstore[1.0.6]" isDeployable="true">
+        <implementation.generic type="PolicyAction"/>
+    </asset>
+    <asset name="PolicyAction.0925f9b1-6847-4248-a9f5-e3b560aaa48f" displayName="Policy Action [Straight Through Routing] -&gt; Policy For API Governed Petstore[1.0.6]" isDeployable="true">
+        <implementation.generic type="PolicyAction"/>
+    </asset>
+</asset_composite>

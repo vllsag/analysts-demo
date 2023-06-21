@@ -14,7 +14,7 @@ concurrency:
 jobs:
   dev_suite:
     environment:
-        name: github-pages
+        name: Dev suite deployment
         url: https://vllsag.github.io/analysts-demo/
     runs-on: self-hosted 
     
@@ -52,7 +52,7 @@ jobs:
         
   qa_suite:
     environment:
-        name: github-pages
+        name: QA suite deployment
         url: https://vllsag.github.io/analysts-demo/index.html
     runs-on: self-hosted 
     needs: dev_suite
