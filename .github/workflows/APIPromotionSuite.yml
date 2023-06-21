@@ -55,7 +55,7 @@ jobs:
         name: github-pages
         url: https://vllsag.github.io/analysts-demo/index.html
     runs-on: self-hosted 
-    
+    needs: dev_suite
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
