@@ -24,11 +24,11 @@ jobs:
 
 
       - name: Run fuctional tests
-        working-directory: ./${{ env.WORKING_DIR }}/tests
+        working-directory: tests
         run:  k6 run functionalTests.js
 
       - name: RUN performanceTests.js
-        working-directory: ./${{ env.WORKING_DIR }}/tests
+        working-directory: tests
         run: |
             k6 run performanceTests.js
         
