@@ -2,9 +2,20 @@ name: Performance test
 
 on: 
   workflow_dispatch:
+  
+permissions:
+   contents: read
+   pages: write
+   id-token: write
+concurrency:
+   group: 'pages'
+   cancel-in-progress: true
 
 jobs:
   build:
+    environment:
+           name: github-pages
+           url: https://vllsag.github.io/analysts-demo/
     runs-on: self-hosted 
     
     steps:
@@ -17,14 +28,29 @@ jobs:
 #update urls         
       - name: RUN performanceTests.js
         run: k6 run performanceTests.js
-#promotion step 
-      - name: "Put back details"
-        uses: stefanzweifel/git-auto-commit-action@v4
-        if: always()
+        
+      - name: directory creation and movement
+        run: |
+         mkdir results 
+         cp summary.html  results 
+         cp summary-functional.html results
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          GITHUB_TOKEN: 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
-          branch: main
-          commit_message: "Automated Change"
-          push_options: '--force'
-          create_branch: true 
+   
+             path: './results'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        
+#promotion step 
+#       - name: "Put back details"
+#         uses: stefanzweifel/git-auto-commit-action@v4
+#         if: always()
+#         with:
+#           GITHUB_TOKEN: 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
+#           branch: main
+#           commit_message: "Automated Change"
+#           push_options: '--force'
+#           create_branch: true 
 
