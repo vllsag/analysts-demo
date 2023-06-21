@@ -24,12 +24,13 @@ jobs:
 
 
       - name: Run fuctional tests
-        working-directory: tests
-        run:  k6 run functionalTests.js
+        run: |
+            cd tests
+            k6 run functionalTests.js
 
       - name: RUN performanceTests.js
-        working-directory: tests
         run: |
+            cd tests
             k6 run performanceTests.js
         
       - name: Report results
