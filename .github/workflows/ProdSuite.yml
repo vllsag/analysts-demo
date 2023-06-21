@@ -12,7 +12,7 @@ concurrency:
    cancel-in-progress: true
 
 jobs:
-  build:
+  dev_suite:
     environment:
            name: github-pages
            url: https://vllsag.github.io/analysts-demo/
@@ -22,36 +22,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-#update urls 
-      - name: RUN functional tests
-        run:  k6 run functionalTests.js
-#update urls         
+
+      - name: Run fuctional tests
+        run:  k6 run tests/functionalTests.js
+
       - name: RUN performanceTests.js
-        run: k6 run performanceTests.js
+        run: k6 run tests/performanceTests.js
         
-      - name: directory creation and movement
+      - name: Report results
         run: |
          mkdir results 
          cp index.html results 
          cp summary.html  results 
          cp summary-functional.html results
+         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-   
              path: './results'
+             
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+ 
+      - name: "Promote to QA"
+        run: |
+        curl -X POST -d '{"description": "Promotion Set to promote to QA environment","name":"PromoteToTest","destinationStages": ["f43f0fba-2ecd-4846-855e-b0de75f57eb0"],"promotedAssets": {"api": ["070111f2-befc-11ec-9621-df3e3620bc44"]}}' -H "Content-Type: application/json" -u ${{ secrets.username }}:${{ secrets.password }} https://analystsdemo.apigw-aw-eu.webmethods.io//rest/apigateway/promotion  
         
-#promotion step 
-#       - name: "Put back details"
-#         uses: stefanzweifel/git-auto-commit-action@v4
-#         if: always()
-#         with:
-#           GITHUB_TOKEN: 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
-#           branch: main
-#           commit_message: "Automated Change"
-#           push_options: '--force'
-#           create_branch: true 
-
+         
