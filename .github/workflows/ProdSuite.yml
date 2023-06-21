@@ -45,7 +45,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
  
-      - name: "Promote to QA"
+      - name: Promote to QA
         run: |
         curl -X POST -d '{"description": "Promotion Set to promote to QA environment","name":"PromoteToTest","destinationStages": ["f43f0fba-2ecd-4846-855e-b0de75f57eb0"],"promotedAssets": {"api": ["070111f2-befc-11ec-9621-df3e3620bc44"]}}' -H "Content-Type: application/json" -u ${{ secrets.username }}:${{ secrets.password }} https://analystsdemo.apigw-aw-eu.webmethods.io//rest/apigateway/promotion  
         
