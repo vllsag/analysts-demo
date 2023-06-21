@@ -26,12 +26,12 @@ jobs:
       - name: Run fuctional tests
         run: |
             cd tests
-            k6 run functionalTests.js
+            k6 run functionalTest.js
 
       - name: RUN performanceTests.js
         run: |
             cd tests
-            k6 run performanceTests.js
+            k6 run performanceTest.js
         
       - name: Report results
         run: |
