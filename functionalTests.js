@@ -14,7 +14,7 @@ export const options = {
 
 export default function() {
   let res;
-  res =  http.get(`https://analystsdemo.apigw-aw-eu.webmethods.io/gateway/Governed%20Petstore/1.0.6/pet/1`)
+  res =  http.get(`https://analystsdemo.apigw-aw-eu.webmethods.io/gateway/Governed%20Petstore/1.0.6/pet/findByStatus?status=sold`)
   const contentNOK = res.status === 200;
   CounterErrors.add(!contentNOK);
 };
