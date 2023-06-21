@@ -12,7 +12,7 @@ export let options = {
 };
 
 export default function() {
-  http.get(`https://analystsdemo.apigw-aw-eu.webmethods.io/gateway/Governed%20Petstore/1.0.6/pet/1`)	
+  http.get(`https://analystsdemo.apigw-aw-eu.webmethods.io/gateway/Governed%20Petstore/1.0.6/pet/findByStatus?status=sold`)	
   sleep(3);
 };
 
